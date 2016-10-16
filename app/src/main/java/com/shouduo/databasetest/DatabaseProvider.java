@@ -45,7 +45,7 @@ public class DatabaseProvider extends ContentProvider {
                 cursor = db.query("BOOK", projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             case BOOK_ITEM:
-                String bookId = uri.getPathSegments().get(1);
+                String bookId = uri.getPathSegments().get(1); //getPathSegments()将URI权限之后的部分以“/”进行分割并将结果存入一个字符串列表中
                 cursor = db.query("BOOK", projection, "id = ?", new String[]{bookId}, null, null, sortOrder);
                 break;
             case CATEGORY_DIR:
@@ -86,7 +86,7 @@ public class DatabaseProvider extends ContentProvider {
             case BOOK_DIR:
             case BOOK_ITEM:
                 long newBookId = db.insert("Book", null, values);
-                uriReturn = Uri.parse("content://" + AUTHORITY + "/category/" + newBookId);
+                uriReturn = Uri.parse("content://" + AUTHORITY + "/book/" + newBookId);
                 break;
             case CATEGORY_DIR:
             case CATEGORY_ITEM:
