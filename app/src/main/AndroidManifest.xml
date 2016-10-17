@@ -17,7 +17,7 @@
         </activity>
         <provider
             android:name="com.shouduo.databasetest.DatabaseProvider"
-            android:authorities="com.shouduo.databasetest.Provider"></provider>
+            android:authorities="com.shouduo.databasetest.provider"></provider>
 
     </application>
 
